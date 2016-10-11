@@ -1,6 +1,6 @@
-package com.cooksys.ftd.assignments.collections.model;
+package com.cooksys.ftd.assignments.day.three.collections.model;
 
-import com.cooksys.ftd.assignments.collections.hierarchy.Hierarchical;
+import com.cooksys.ftd.assignments.day.three.collections.hierarchy.Hierarchical;
 
 public interface Capitalist extends Hierarchical<Capitalist, FatCat> {
 

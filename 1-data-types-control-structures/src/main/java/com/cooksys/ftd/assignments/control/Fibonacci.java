@@ -1,4 +1,4 @@
-package com.cooksys.ftd.assignments.control;
+package com.cooksys.ftd.assignment.day.one;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -23,8 +23,11 @@ public class Fibonacci {
      * @return the calculated element
      * @throws IllegalArgumentException if the given index is less than zero
      */
-    public static int atIndex(int i) throws IllegalArgumentException {
-        throw new NotImplementedException();
+    public static int atIndex(int index) throws IllegalArgumentException {
+    	if (index < 0)
+    		throw new IllegalArgumentException();
+        int[] array = fibonacci(index + 1);
+        return array[index];
     }
 
     /**
@@ -38,7 +41,27 @@ public class Fibonacci {
      *                                  given end is less than the given start
      */
     public static int[] slice(int start, int end) throws IllegalArgumentException {
-        throw new NotImplementedException();
+    	
+    	if (start < 0 || end < 0 || end < start)
+    		throw new IllegalArgumentException();
+    	
+    	if (start == end) {
+    		int[] array = new int[0];
+    		return array;
+    	}
+    		
+    	int[] seed = {1, 1};
+    	int[] result = new int[end - start];
+    	
+    	for (int i = 0; i < end; i++) {
+    		int tmp = seed[0];
+    		seed[0] = seed[0] + seed[1];
+    		seed[1] = tmp;
+    		if (i >= start)
+    			result[i] = tmp;
+    	}
+    	
+    	return result;
     }
 
     /**
@@ -49,6 +72,23 @@ public class Fibonacci {
      * @throws IllegalArgumentException if the given count is negative
      */
     public static int[] fibonacci(int count) throws IllegalArgumentException {
-        throw new NotImplementedException();
+
+    	if (count < 0)
+    		throw new IllegalArgumentException();
+    	
+        int[] array = new int[count];
+        if (count >= 1) { array[0] = 1; }
+        if (count >= 2) { array[1] = 1; }
+        if (count >= 3) {
+        	for (int i = 2; i < count; i++) {
+        		array[i] = array[i - 1] + array[i - 2];
+        	}
+        }
+
+        return array;
     }
+    
+    public static void main(String[] args) {
+		slice(0, 10);
+	}
 }

@@ -1,1 +1,7 @@
-<config/>
+<config>
+	<remote host="10.1.1.194" port="8080"></remote>
+	<local port="8080"></local>
+	<student-file-path>
+		
+	</student-file-path>
+</config>
